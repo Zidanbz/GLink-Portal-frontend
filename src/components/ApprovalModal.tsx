@@ -46,7 +46,7 @@ export default function ApprovalModal({ item, onClose, onSuccess }: ApprovalModa
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:5001/api/pengajuan/${item.id}/approval`, {
+      const res = await fetch(`/api/pengajuan/${item.id}/approval`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

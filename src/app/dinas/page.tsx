@@ -79,7 +79,7 @@ export default function PengajuanDinasPage() {
 
   const fetchNomorTerbaru = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/pengajuan-dinas/nomor-terbaru', { cache: 'no-store' });
+      const res = await fetch('/api/pengajuan-dinas/nomor-terbaru', { cache: 'no-store' });
       if (!res.ok) throw new Error('Gagal memuat nomor surat terbaru');
       const json = await res.json();
       if (json.success) {
@@ -404,7 +404,7 @@ export default function PengajuanDinasPage() {
         itinerary_items: itineraryList
       };
 
-      const res = await fetch('http://localhost:5001/api/pengajuan-dinas/preview-pdf', {
+      const res = await fetch('/api/pengajuan-dinas/preview-pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -459,7 +459,7 @@ export default function PengajuanDinasPage() {
         itinerary_items: itineraryList
       };
 
-      const res = await fetch('http://localhost:5001/api/pengajuan-dinas/generate-pdf', {
+      const res = await fetch('/api/pengajuan-dinas/generate-pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

@@ -141,7 +141,7 @@ export default function NewSubmissionModal({ onClose, onSuccess }: NewSubmission
         body.append('surat_dokter', suratDokterFile);
       }
 
-      const res = await fetch('http://localhost:5001/api/pengajuan', {
+      const res = await fetch('/api/pengajuan', {
         method: 'POST',
         body
       });

@@ -143,7 +143,7 @@ export default function FormPengajuanPage() {
         body.append('surat_dokter', suratDokterFile);
       }
 
-      const res = await fetch('http://localhost:5001/api/generate-pdf', {
+      const res = await fetch('/api/generate-pdf', {
         method: 'POST',
         body
       });

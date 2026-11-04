@@ -58,7 +58,7 @@ export default function DocumentPreview({ data, onClose, isModal = false }: Docu
 
   const handleDownloadPdf = () => {
     if (data.id) {
-      window.open(`http://localhost:5001/api/pengajuan/${data.id}/pdf?download=1`, '_blank');
+      window.open(`/api/pengajuan/${data.id}/pdf?download=1`, '_blank');
     }
   };
 

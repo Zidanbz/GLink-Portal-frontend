@@ -163,7 +163,7 @@ export default function DetailModal({ item, onClose, onPreview, onApproval }: De
                 </div>
               </div>
               <a
-                href={`http://localhost:5001${item.surat_dokter_url}`}
+                href={`${item.surat_dokter_url}`}
                 target="_blank"
                 rel="noreferrer"
                 className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5"
@@ -220,7 +220,7 @@ export default function DetailModal({ item, onClose, onPreview, onApproval }: De
               Ubah Persetujuan
             </button>
             <a
-              href={`http://localhost:5001/api/pengajuan/${item.id}/pdf?download=1`}
+              href={`/api/pengajuan/${item.id}/pdf?download=1`}
               target="_blank"
               rel="noreferrer"
               className="px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all shadow-sm flex items-center gap-1.5"

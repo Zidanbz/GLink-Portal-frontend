@@ -210,7 +210,7 @@ export default function PengajuanCutiPage() {
     setPreviewLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5001/api/pengajuan-cuti/preview-pdf', {
+      const res = await fetch('/api/pengajuan-cuti/preview-pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -270,7 +270,7 @@ export default function PengajuanCutiPage() {
 
     try {
       // 1. Simpan ke database
-      const saveRes = await fetch('http://localhost:5001/api/pengajuan-cuti', {
+      const saveRes = await fetch('/api/pengajuan-cuti', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -281,7 +281,7 @@ export default function PengajuanCutiPage() {
       }
 
       // 2. Request file PDF untuk di-download
-      const pdfRes = await fetch('http://localhost:5001/api/pengajuan-cuti/generate-pdf', {
+      const pdfRes = await fetch('/api/pengajuan-cuti/generate-pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

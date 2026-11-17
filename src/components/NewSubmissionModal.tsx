@@ -112,6 +112,10 @@ export default function NewSubmissionModal({ onClose, onSuccess }: NewSubmission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    if (suratDokterFile && suratDokterFile.size > 2 * 1024 * 1024) {
+      setError('Lampiran maksimal 2 MB. Kompres file terlebih dahulu.');
+      return;
+    }
 
     if (!formData.nama.trim() || !formData.jabatan.trim() || !formData.alasan.trim()) {
       setError('Harap isi Nama, Jabatan, dan Alasan.');
@@ -419,7 +423,7 @@ export default function NewSubmissionModal({ onClose, onSuccess }: NewSubmission
                       {suratDokterFile ? suratDokterFile.name : 'Klik untuk unggah surat keterangan sakit / bukti izin'}
                     </span>
                     <p className="text-[11px] text-slate-400 mt-1">
-                      Format PDF, JPG, PNG (Maks 10MB)
+                      Format PDF, JPG, PNG (Maks 2MB)
                     </p>
                   </label>
                 </div>

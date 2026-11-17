@@ -101,6 +101,10 @@ export default function FormPengajuanPage() {
   const handleGeneratePdf = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    if (suratDokterFile && suratDokterFile.size > 2 * 1024 * 1024) {
+      setError('Lampiran maksimal 2 MB. Kompres file terlebih dahulu.');
+      return;
+    }
     setSuccessMessage(null);
 
     // Validations
@@ -512,7 +516,7 @@ export default function FormPengajuanPage() {
                     : 'Klik untuk unggah surat keterangan / berkas pendukung'}
                 </span>
                 <p className="text-[11px] text-slate-400 mt-1">
-                  Format PDF, JPG, PNG (Maksimal 10MB)
+                  Format PDF, JPG, PNG (Maksimal 2MB)
                 </p>
               </label>
             </div>

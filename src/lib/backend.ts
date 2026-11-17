@@ -14,7 +14,7 @@ export async function forwardBackend(request: Request): Promise<Response> {
     return Response.json({ success: false, message: 'BACKEND_URL harus menggunakan HTTPS di Vercel.' }, { status: 503 });
   }
   // Origin is configured by the operator, never taken from a client URL/header.
-  target.pathname = incoming.pathname;
+  target.pathname = target.pathname.replace(/\/$/, '') + incoming.pathname;
   target.search = incoming.search;
   const headers = new Headers();
   for (const name of ['content-type', 'accept']) {

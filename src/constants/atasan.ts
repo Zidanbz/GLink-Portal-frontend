@@ -4,7 +4,7 @@ export interface Atasan {
 }
 
 export const DAFTAR_ATASAN: Atasan[] = [
-  { nama: 'TIRTAKUSUMA WIJAYA WIHARJO', jabatan: 'Senior Manager' },
+  { nama: 'ANDI TAKBIRAN', jabatan: 'Marketing Manager' },
   { nama: 'ANDI ULFA AIHSYA ARYANI', jabatan: 'Head Of Finance' },
   { nama: 'MUHAJIRIN', jabatan: 'HRD Manager' },
   { nama: 'ANDI RUDINI', jabatan: 'General Manager' },

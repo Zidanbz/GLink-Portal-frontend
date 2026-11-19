@@ -149,7 +149,8 @@ export default function FormPengajuanPage() {
 
       const res = await fetch('/api/generate-pdf', {
         method: 'POST',
-        body
+        body,
+        signal: AbortSignal.timeout(70_000),
       });
 
       if (!res.ok) {
@@ -185,9 +186,12 @@ export default function FormPengajuanPage() {
       window.URL.revokeObjectURL(downloadUrl);
 
       setSuccessMessage(`Berhasil! Dokumen PDF "${filename}" telah di-generate dan otomatis diunduh ke perangkat Anda.`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err.message || 'Terjadi kesalahan saat membuat file PDF.');
+      const timedOut = err instanceof Error && ['TimeoutError', 'AbortError'].includes(err.name);
+      setError(timedOut
+        ? 'Proses PDF melewati batas waktu. Jangan kirim berulang; pengajuan mungkin sudah tersimpan. Periksa koneksi lalu hubungi pengelola jika masih gagal.'
+        : err instanceof Error ? err.message : 'Terjadi kesalahan saat membuat file PDF.');
     } finally {
       setLoading(false);
     }
